@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Musicapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="topnav">
+        <h1>Welcome to the simple music app!</h1>
+        <a href=" <%= bands_url %>">Bands Index</a>
+        <a href=" <%= new_album_url %>">Add new album</a>
+        <% if current_user.nil? %>
+          <%= button_to "login", new_session_url, method: :get %>
+        <% else %>
+        <%= user_status(current_user) %>
+        <%= button_to "logout", session_url, method: :delete %>
+        <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>

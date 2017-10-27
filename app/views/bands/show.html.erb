@@ -1,0 +1,10 @@
+<!-- There should be  quick way to add album for this band -->
+<h2><%= @band.name %></h2>
+<a href=" <%= edit_band_url %>">Edit band</a>
+<br>
+<h2>Albums</h2>
+<% @band.albums.each do |album| %>
+  <a href= "<%= album_url(album) %>"> <%= album.title %> </a> <br>
+<% end %>
+<h2>Delete?</h2>
+<%= button_to "Delete band!", band_url, method: :delete %>

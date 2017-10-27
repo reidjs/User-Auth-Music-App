@@ -1,0 +1,7 @@
+<ul>
+<a href= "<%= new_band_url %>">Make new band</a>
+<% Band.all.each do |band| %>
+<li><a href=" <%= band_url(band) %>"><%= band.name %></a></li>
+<%= button_to "Delete", band, method: :delete %>
+<% end %>
+</ul>
