@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+TO DO
+There is no way to create a new account
+Front end stuff
+User show page is blank
+Radio buttons are not working properly on edit pages (not preselected correctly)

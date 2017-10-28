@@ -1,0 +1,15 @@
+WARNING: does not preselect correct track nor radio button
+<h1>Edit track</h1>
+<form action=" <%= track_url(@track) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+title:<input type="text" name="track[title]" value="<%= @track.title %>">
+number:<input type="text" name="track[number]" value="<%= @track.ord %>">
+<input type="radio" name="track[bonus]" value="false">No
+Select album:
+<select name="track[album_id]">
+  <% Album.all.each do |album| %>
+    <option value="<%= album.id %>"> <%= album.title %></option>
+  <% end  %>
+</select>
+<input type="submit" value="Enter">
+</form>
