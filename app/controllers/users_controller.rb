@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     return nil if @user.nil?
     if @user.save
       login!(@user)
-      redirect_to @user
+      redirect_to bands_url
     else
       flash[:errors] = @user.errors.full_messages
       render :new
