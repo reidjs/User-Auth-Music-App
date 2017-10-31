@@ -6,8 +6,15 @@
   <input type="radio" name="album[live]" value="false">No
   <select name="album[band_id]">
     <% Band.all.each do |band| %>
-      <option value="<%= band.id %>"> <%= band.name %></option>
+      <% if @album && band == @album.band %>
+        <% selecttoggle = "selected" %>
+      <% else %>
+        <% selecttoggle = "" %>
+      <% end %>
+      <option selected="<%= selecttoggle %>" value="<%= band.id %>"> <%= band.name %></option>
     <% end  %>
   </select>
   <input type="submit" value="SUBMIT">
 </form>
+
+<!-- How do you send information about the band to the album show page -->

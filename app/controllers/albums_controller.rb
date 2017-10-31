@@ -1,6 +1,15 @@
 class AlbumsController < ApplicationController
+
+  attr_reader :album
+  before_action :current_album
+
   def new
     render :new
+  end
+
+  def current_album
+    return nil unless params[:id]
+    @album ||= Album.find_by(id: params[:id])
   end
 
   def create
@@ -8,21 +17,25 @@ class AlbumsController < ApplicationController
     if @album.save
       render :show
     else
-      flash.now[:error] = ["Error saving album"]
+      flash.now[:errors] = @album.errors.full_messages
       render :new
     end
   end
 
   def edit
-    @album = Album.find_by(id: params[:id])
+    # @album = Album.find_by(id: params[:id])
     render :edit
   end
 
   def destroy
+    album = current_album
+    album.destroy if album
+    redirect_to band_url(album.band)
+
   end
 
   def show
-    @album = Album.find_by(id: params[:id])
+    # @album = Album.find_by(id: params[:id])
     render :show
   end
 

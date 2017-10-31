@@ -8,7 +8,7 @@ class BandsController < ApplicationController
     if @band.save
       redirect_to @band
     else
-      flash.now[:error] = ["band save failed"]
+      flash.now[:errors] = ["band save failed"]
       render :new
     end
   end

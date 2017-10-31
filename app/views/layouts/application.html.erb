@@ -21,6 +21,13 @@
         <%= button_to "logout", session_url, method: :delete %>
         <% end %>
     </header>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <div class="alert">
+          <%= error %>
+        </div>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

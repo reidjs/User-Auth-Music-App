@@ -1,7 +1,9 @@
 <h1>show album</h1>
 <%= @album.title %>
-<%= @album.year %>
-<%= @album.band.name %>
+(<%= @album.year %>)
+By <a href="<%= band_url(@album.band) %>"><%= @album.band.name %></a>
+
+
 <h2>Tracks</h2>
 <ol>
 <% @album.tracks.order(:ord).each do |track|  %>
@@ -9,4 +11,7 @@
 <% end %>
 </ol>
 
-<a href=" <%= new_track_url %>">Add new track</a>
+<a href="<%= new_track_url %>">Add new track</a>
+<br>
+<hr>
+<%= button_to "Remove Album", album_url(@album), method: :delete %>
