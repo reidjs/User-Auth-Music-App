@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
   before_action :current_album
 
   def new
+    # fail
     render :new
   end
 
