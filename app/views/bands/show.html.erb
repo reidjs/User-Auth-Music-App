@@ -6,5 +6,7 @@
 <% @band.albums.each do |album| %>
   <a href= "<%= album_url(album) %>"> <%= album.title %> </a> <br>
 <% end %>
+<%= button_to "Add new album", new_album_url, method: :get, band_id: @band.id %>
+<hr>
 <h2>Delete?</h2>
 <%= button_to "Delete band!", band_url, method: :delete %>

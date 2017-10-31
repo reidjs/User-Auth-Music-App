@@ -11,7 +11,7 @@ class TracksController < ApplicationController
       render :show
     else
       debugger
-      flash.now[:error] = ["wrong track params"]
+      flash[:errors] = ["wrong track params"]
       render :new
     end
   end
